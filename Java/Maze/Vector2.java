@@ -10,11 +10,11 @@ public class Vector2 {
         this.y = y;
     }
     
-    public Vector2(double x) { Vector2(x, 0); }
-    public Vector2() { Vector2(0, 0); }
+    public Vector2(double x) { new Vector2(x, 0); }
+    public Vector2() { new Vector2(0, 0); }
     
     public String get() {
-        return String.valueOf(x) + "," + String.valueOf(y)
+        return String.valueOf(x) + "," + String.valueOf(y);
     }
     
 }
