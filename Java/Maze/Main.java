@@ -18,7 +18,7 @@ public class Main {
                 Utils.out("Save Data?(\"q\" is quit): ");
                 str = scan.next();
             } while (!(str.equals("q") || MazeUtils.testSave(str)));
-            Utils.out("Loaded!");
+            Utils.out(MazeUtils.testSave(str));
         }
         
     }
