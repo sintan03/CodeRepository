@@ -17,6 +17,9 @@ public class MazeUtils {
         int pointer = 0;
         int strLength = str.length();
         while (pointer < strLength) {
+            if (strLength - pointer < 2) {
+                return false;
+            }
             switch (str.substring(pointer, pointer + 2)) {
                 case "11":
                     pointer += 2;
@@ -45,21 +48,30 @@ public class MazeUtils {
         }
 
         return pointer == strLength;
-        /*
-        int seed = 0;
+
+    }
+
+    public static MazeData loadSave(String str) {
+
+        int pointer = 0;
+        int strLength = str.length();
         while (pointer < strLength) {
             switch (str.substring(pointer, pointer + 2)) {
-                case "01":
+                case "11":
                     pointer += 2;
                     int dataLength = Integer.parseInt(str.substring(pointer, pointer + 2));
-                    pointer += 2;
-                    seed = Integer.parseInt(str.substring(pointer, pointer + dataLength));
+                    pointer += 2 + dataLength;
                     break;
-                case "02":
+                case "12":
+                    pointer += 2;
+                    int vectorXLength = Integer.parseInt(str.substring(pointer, pointer + 2));
+                    int vectorYLength = Integer.parseInt(str.substring(pointer + 2, pointer + 4));
+                    pointer += 4 + vectorXLength + vectorYLength;
                     break;
             }
         }
-        */
+
+        return new MazeData(12345, new Vector2());
 
     }
     
